@@ -2,9 +2,33 @@ import { Chess } from "chess.js";
 import { arrayToTree } from "performant-array-to-tree";
 import _ from "lodash";
 
+/*
+
+beware :
+
+load
+load_pgn
+clear
+move (use playMove instead)
+put
+remove
+reset (use new class reset function)
+undo (use goPly instead)
+
+*/
+
 class chessjsextended {
   constructor(a_fen) {
     this.chess = new Chess(a_fen);
+    this._rHistory = {
+      realHistory: [],
+      realHistoryIdIndex: 0,
+      realHistoryIdIndexBranch: null,
+    };
+  }
+  
+  reset() {
+    this.chess.reset();
     this._rHistory = {
       realHistory: [],
       realHistoryIdIndex: 0,
