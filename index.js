@@ -48,10 +48,11 @@ class chessjsextended {
       });
       if (temp_pointer === 0) {
         console.log("Warning back to the root !");
-        temp_pointer = null;
+        this._rHistory.realHistoryIdIndexBranch = null;
+      } else {
+        this._rHistory.realHistoryIdIndexBranch =
+          this._rHistory.realHistory[temp_pointer].parentId;
       }
-      this._rHistory.realHistoryIdIndexBranch =
-        this._rHistory.realHistory[temp_pointer].parentId;
       console.log("Back to : " + this._rHistory.realHistoryIdIndexBranch);
       //
     }
